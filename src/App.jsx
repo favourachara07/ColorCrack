@@ -1,61 +1,62 @@
+import { useReducer } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import StartScreen from "./components/StartScreen";
+import Guess from "./components/Guess";
 
-import { useReducer } from 'react';
-import './App.css'
-import Header from './components/Header'
-import Main from './components/Main'
-import StartScreen from './components/StartScreen';
-import Guess from './components/Guess';
+const colors = ['#FF5733', '#33FF57', '#3357FF', '#F3FF33', '#FF33A1', '#33FFF3'];
 
-const initialState={
-  currentColor: '',
-  guess: '',
+const initialState = {
+  targetColor: '',
+  isRevealed: false,
+  isModalOpen: false,
+  modalMessage: '',
+  correctGuesses: false,
   score: 0,
-  status: 'ready',
-  highScore: 0
-}
+  status: 'ready'
+};
 
 function reducer(state, action) {
   switch (action.type) {
     case "start":
       return { ...state, status: "active" };
-    case "newAnswer": {
-      // current question
-      const question = state.questions[state.index];
+    case "GENERATE_NEW_COLOR":
       return {
         ...state,
-        answer: action.payload,
-        scores:
-          action.payload === question.correctOption
-            ? state.scores + question.points
-            : state.scores,
+        targetColor: colors[Math.floor(Math.random() * colors.length)],
+        isRevealed: false,
       };
-    }
-    case "nextGuess":
+    case "REVEAL_COLOR":
       return {
         ...state,
-        index: state.index + 1,
-        answer: null,
+        isRevealed: true,
       };
-    case "restart":
-      return {
-        ...initialState,
-        highScore: state.highScore,
-        status: "ready",
-      };
-    case "tick":
+    case "SET_MODAL_MESSAGE":
       return {
         ...state,
-        secondsRemaining: state.secondsRemaining - 1,
-        status: state.secondsRemaining === 0 ? "finished" : state.status,
+        modalMessage: action.payload,
+        correctGuesses: action.correct,
       };
+    case "TOGGLE_MODAL":
+      return {
+        ...state,
+        isModalOpen: !state.isModalOpen,
+      };
+    case "INCREMENT_SCORE":
+      return {
+        ...state,
+        score: state.score + 10,
+      };
+    case "RESET_GAME":
+      return initialState;
     default:
-      throw new Error("Action unknown");
+      return state;
   }
 }
 
-
 function App() {
-  const [{ currentColor, guess,score, status }, dispatch] = useReducer(
+  const [state, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -63,11 +64,11 @@ function App() {
     <div className="app">
       <Header />
       <Main>
-        {status === 'ready' && <StartScreen dispatch={dispatch} />}
-        {status ==='active' && <Guess dispatch={dispatch} />}
+        {state.status === "ready" && <StartScreen dispatch={dispatch} />}
+        {state.status === "active" && <Guess dispatch={dispatch} state={state} />}
       </Main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
