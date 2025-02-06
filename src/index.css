@@ -164,6 +164,11 @@ main {
     opacity: 0;
   }
 }
+
+.new-btn{
+  margin-top: 2rem;
+  padding: 1rem;
+}
 @media screen and (max-width: 600px) {
   .welcome {
     font-size: 2rem;
