@@ -94,6 +94,7 @@ const Guess = ({ state, dispatch }) => {
       </div>
       <button
           className="btn new-btn"
+          style={{ backgroundColor: color}}
           onClick={() => dispatch({ type: "RESET_GAME" })}
         >
           Start New Game

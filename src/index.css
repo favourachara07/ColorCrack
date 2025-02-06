@@ -168,6 +168,7 @@ main {
 .new-btn{
   margin-top: 2rem;
   padding: 1rem;
+  border: none;
 }
 @media screen and (max-width: 600px) {
   .welcome {
