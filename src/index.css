@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,21 +18,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 body {
-  font-family:  cursive;
+  font-family: "Fredoka One", cursive;
 }
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.app{
+.app {
   height: 100vh;
   width: 100vw;
 }
-main{
+main {
   margin: 0 3rem 0 3rem;
 }
-.color_box  {
+.color_box {
   background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -39,15 +45,15 @@ main{
   transition: transform 0.3s ease;
   margin-bottom: 2rem;
 }
-.color-options{
+.color-options {
   margin-top: 2rem;
 }
-.color-options{
+.color-options {
   display: flex;
   justify-content: center;
   flex-direction: row;
 }
-.color_option{
+.color_option {
   border-radius: 2rem;
 }
 
@@ -87,33 +93,36 @@ main{
 .btn {
   display: block;
   font-family: inherit;
-  color: #ffffff; 
+  color: #ffffff;
   font-size: 1rem;
   font-weight: bold;
-  border: 2px solid #06478d;
-  background-color: #007bff; 
+  border: 2px solid #d47125;
+  background-color: #ec9049;
   padding: 1.2rem 2.4rem;
   cursor: pointer;
   border-radius: 100px;
   transition: 0.3s;
   float: right;
 }
-.next-btn{
+.next-btn {
   display: block;
   font-family: inherit;
-  color: #ffffff; 
+  color: #ffffff;
   font-size: 1rem;
   font-weight: bold;
   border: 2px solid #06478d;
-  background-color: #007bff; 
+  background-color: #007bff;
   padding: 1rem;
   cursor: pointer;
   border-radius: 100px;
-  transition: 0.3s; 
+  transition: 0.3s;
 }
-.btn:hover, .next-btn {
-  background-color: #0056b3; 
-  border-color: #0056b3; 
+.btn:hover{
+  background-color: #d36918;
+}
+.next-btn {
+  background-color: #0056b3;
+  border-color: #0056b3;
 }
 .app-header {
   margin-bottom: 4rem;
@@ -121,39 +130,56 @@ main{
   align-items: center;
   justify-content: center;
 }
-.start{
+.start {
   margin-top: 7rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center ;
-  align-items: center;
-}
-.welcome{
-    font-size: 3.6rem;
-    margin-bottom: 2rem;
-}
-.guess_container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-@media screen and (max-width: 600px) {
-  .welcome{
-    font-size: 2rem
+.welcome {
+  font-size: 3.6rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Gradient colors */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.guess_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
   }
-  .app-header{
+  to {
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .welcome {
+    font-size: 2rem;
+  }
+  .app-header {
     margin-bottom: 1.5rem;
   }
-  .guess_text{
+  .guess_text {
     font-weight: 300;
   }
-  .color_box{
+  .color_box {
     width: 62%;
   }
-  .color-options{
+  .color-options {
     display: grid;
     grid-template-columns: 100px 100px 100px; /* Three columns, each 100px wide */
-  grid-template-rows: 70px 50px; /* Two rows, each 50px high */
+    grid-template-rows: 70px 50px; /* Two rows, each 50px high */
   }
 }

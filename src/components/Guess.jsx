@@ -1,3 +1,4 @@
+import confetti from 'canvas-confetti';
 import React, { useState, useEffect } from 'react';
 import { BsCheckCircle, BsXCircle } from 'react-icons/bs';
 
@@ -69,6 +70,7 @@ const Guess = ({ state, dispatch }) => {
     if (shade === color) {
       dispatch({ type: 'SET_MODAL_MESSAGE', payload: 'Congratulations! You guessed the correct color.', correct: true });
       dispatch({ type: 'INCREMENT_SCORE' });
+      confetti();
     } else {
       dispatch({ type: 'SET_MODAL_MESSAGE', payload: 'Sorry, that is not the correct color.', correct: false });
     }
@@ -87,7 +89,8 @@ const Guess = ({ state, dispatch }) => {
 
   return (
     <div className="guess_container">
-      <h2 className='guess_text'>Try and Guess the right color</h2>
+      <h2 className='guess_text' data-testid="gameInstructions"
+      >Challenge: Identify the right color!</h2>
       <div className="score_bar">
         <h3 data-testid="score"
         >Score: {state.score}</h3>
