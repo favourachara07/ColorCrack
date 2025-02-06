@@ -87,12 +87,12 @@ const Guess = ({ state, dispatch }) => {
 
   return (
     <div className="guess_container">
-      <h2>Try and Guess the right color</h2>
+      <h2 className='guess_text'>Try and Guess the right color</h2>
       <div className="score_bar">
         <h3 data-testid="score"
         >Score: {state.score}</h3>
       </div>
-      <div className="color_box" data-testid="colorBox" style={{ backgroundColor: color, width: '16rem', height: '9rem', margin: '10px auto' }}>
+      <div className="color_box" data-testid="colorBox" style={{ backgroundColor: color, margin: '10px auto' }}>
       </div>
       <div className="color-options">
         {shades.map((shade, index) => (

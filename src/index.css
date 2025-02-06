@@ -12,6 +12,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body {
+  font-family:  cursive;
+}
 *{
   margin: 0;
   padding: 0;
@@ -29,8 +32,8 @@ main{
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  height: 10rem;
-  width: 15rem;
+  height: 9rem;
+  width: 16rem;
   text-align: center;
   padding: 30px;
   transition: transform 0.3s ease;
@@ -136,5 +139,21 @@ main{
   align-items: center;
 }
 @media screen and (max-width: 600px) {
-  /* CSS rules for screens with a maximum width of 600px */
+  .welcome{
+    font-size: 2rem
+  }
+  .app-header{
+    margin-bottom: 1.5rem;
+  }
+  .guess_text{
+    font-weight: 300;
+  }
+  .color_box{
+    width: 62%;
+  }
+  .color-options{
+    display: grid;
+    grid-template-columns: 100px 100px 100px; /* Three columns, each 100px wide */
+  grid-template-rows: 70px 50px; /* Two rows, each 50px high */
+  }
 }
